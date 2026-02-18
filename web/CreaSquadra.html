@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Crea la tua Squadra di Formula 1</title>
+  <style>
+
+
+    body {
+      font-family: 'Arial Black', sans-serif;
+      background-color: #0f0f0f;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      background-image: url("images/blackcar.jpg");
+      background-size: cover;        /* Adatta l'immagine per coprire tutto lo sfondo */
+      background-repeat: no-repeat;  /* Evita la ripetizione */
+      background-position: center;
+    }
+
+    header {
+      font-family: 'Arial Black', sans-serif;
+      font-size: 1 rem;
+      color: #e10600;
+      text-shadow: 0 0 10px #e10600;
+      margin-bottom: 0.3em;
+      letter-spacing: 0.15em;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    form {
+      background-color: rgba(28, 28, 28, 0.9); /* 0.8 = 80% opacità */
+      padding: 30px;
+      width: 100em;
+      margin: 40px auto;
+      border: 2px solid #e10600;
+      border-radius: 10px;
+    }
+
+    h2 {
+      color: #e10600;
+      border-bottom: 2px solid #e10600;
+      padding-bottom: 5px;
+    }
+
+    .section {
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      background-color: #2b2b2b;
+      color: white;
+      border: 1px solid #e10600;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #e10600;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #b00000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #0f0f0f;
+      color: #888;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: rgba(28, 28, 28, 0.9);
+      box-shadow: 0 0 10px #000;
+
+    }
+
+    thead {
+      background-color: #e10600; /* Rosso F1 */
+    }
+
+    thead th {
+      padding: 12px;
+      font-size: 16px;
+      text-transform: uppercase;
+      color: white;
+      border: 1px solid #333;
+
+    }
+
+    tbody td {
+      padding: 10px;
+      border: 1px solid #333;
+      text-align: center;
+      background-color: rgba(28, 28, 28, 0.9);
+
+    }
+
+    tbody tr:nth-child(even) {
+            background-color: rgba(28, 28, 28, 0.9);
+
+    }
+
+    button {
+        position: relative;
+        padding: 10px 20px;
+        border-radius: 7px;
+        border: 1px solid rgb(255, 61, 61);
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 2px;
+        background: transparent;
+        color: #fff;
+        overflow: hidden;
+        box-shadow: 0 0 0 0 transparent;
+        -webkit-transition: all 0.2s ease-in;
+        -moz-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in;
+      }
+
+      button:hover {
+        background: rgb(255, 61, 61);
+        box-shadow: 0 0 30px 5px rgba(236, 0, 0, 0.815);
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+      }
+
+      button:hover::before {
+        -webkit-animation: sh02 0.5s 0s linear;
+        -moz-animation: sh02 0.5s 0s linear;
+        animation: sh02 0.5s 0s linear;
+      }
+
+      button::before {
+        content: '';
+        display: block;
+        width: 0px;
+        height: 86%;
+        position: absolute;
+        top: 7%;
+        left: 0%;
+        opacity: 0;
+        background: #fff;
+        box-shadow: 0 0 50px 30px #fff;
+        -webkit-transform: skewX(-20deg);
+        -moz-transform: skewX(-20deg);
+        -ms-transform: skewX(-20deg);
+        -o-transform: skewX(-20deg);
+        transform: skewX(-20deg);
+      }
+
+      @keyframes sh02 {
+        from {
+          opacity: 0;
+          left: 0%;
+        }
+
+        50% {
+          opacity: 1;
+        }
+
+        to {
+          opacity: 0;
+          left: 100%;
+        }
+      }
+
+      button:active {
+        box-shadow: 0 0 0 0 transparent;
+        -webkit-transition: box-shadow 0.2s ease-in;
+        -moz-transition: box-shadow 0.2s ease-in;
+        transition: box-shadow 0.2s ease-in;
+      }
+
+  </style>
+</head>
+<body>
+  
+  <div style="display: flex;justify-content: center; align-items: center; gap: 10px; margin: 20px 0; font-family: system-ui, sans-serif; font-size: 16px; color: white;">
+    <label for="wheels" style="min-width: 160px;">Wheels rimanenti:</label>
+    
+    <input type="text" id="wheels" value="100" readonly 
+          style="background-color: white; color: black; border: 2px solid #e10600; padding: 5px 10px; width: 80px; text-align: center; font-weight: bold; border-radius: 4px;">
+    
+    <span style="color: #e10600; font-weight: bold; font-size: 18px;">₩</span>
+  </div>
+
+  <form id="f1Form" onsubmit="return validateForm()">
+
+    <h2 style="
+    text-align: center;
+    color: #e10600;
+    font-family: system-ui, sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  ">
+    Scegli una Leggenda
+  </h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nazionalità</th>
+          <th>Nome</th>
+          <th>Abilità</th>
+          <th>Prezzo</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>GER</td>
+          <td>Micheal Schumacher</td>
+          <td>+15 punti per ogni Pilota della scuderia Ferrari arrivato sul podio</td>
+          <td>28 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>BRA</td>
+          <td>Ayrton Senna</td>
+          <td>+15 punti per ogni Pilota della scuderia McLaren arrivato sul podio</td>
+          <td>30 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>GER</td>
+          <td>Sebastian Vettel</td>
+          <td>+15 punti per ogni Pilota della scuderia RedBull arrivato sul podio</td>
+          <td>27 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>FIN</td>
+          <td>Kimi Raikkonen</td>
+          <td>+15 punti per ogni Pilota della tua Squadra arrivato sul podio</td>
+          <td>24 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>ARG</td>
+          <td>Juan Manuel Fangio</td>
+          <td>+20 punti per ogni pilota sudamericano in top 10</td>
+          <td>24 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>FRA</td>
+          <td>Alain Prost</td>
+          <td>+10 punti per ogni pilota della tua Squadra che arriva davanti al suo compagno di scuderia</td>
+          <td>24 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>UK</td>
+          <td>James Hunt</td>
+          <td>+10 punti per ogni pilota britannico sul podio</td>
+          <td>23 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>UK</td>
+          <td>Nigel Mansell</td>
+          <td>+12 punti per ogni pilota della scuderia Williams in top 10</td>
+          <td>22 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>GER</td>
+          <td>Nico Rosberg</td>
+          <td>+15 punti per ogni pilota della scuderia Mercedes sul podio</td>
+          <td>20 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>AUT</td>
+          <td>Niki Lauda</td>
+          <td>+8 punti per ogni Pilota della tua Squadra che finisce la gara</td>
+          <td>24 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 style="
+    text-align: center;
+    color: #e10600;
+    font-family: system-ui, sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  ">
+    Scegli 3 Piloti
+  </h2>
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nazionalità</th>
+          <th>Nome</th>
+          <th>Scuderia</th>
+          <th>Prezzo</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>MCO</td>
+          <td>Charles Leclerc</td>
+          <td>Ferrari</td>
+          <td>28 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>UK</td>
+          <td>Lewis Hamilton</td>
+          <td>Ferrari</td>
+          <td>27 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>UK</td>
+          <td>Lando Norris</td>
+          <td>McLaren</td>
+          <td>33 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>AUS</td>
+          <td>Oscar Piastri</td>
+          <td>McLaren</td>
+          <td>33 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>NED</td>
+          <td>Max Vertappen</td>
+          <td>RedBull</td>
+          <td>34 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>JAP</td>
+          <td>Yuki Tsunoda</td>
+          <td>RedBull</td>
+          <td>18 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>UK</td>
+          <td>George Russell</td>
+          <td>Mercedes</td>
+          <td>27 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>ITA</td>
+          <td>Kimi Antonelli</td>
+          <td>Mercedes</td>
+          <td>21 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>THA</td>
+          <td>Alexander Albon</td>
+          <td>Williams</td>
+          <td>19 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>ESP</td>
+          <td>Carlos Sainz</td>
+          <td>Williams</td>
+          <td>17 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>ESP</td>
+          <td>Fernando Alonso</td>
+          <td>Aston Martin</td>
+          <td>16 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>CAN</td>
+          <td>Lance Stroll</td>
+          <td>Aston Martin</td>
+          <td>14 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <tr>
+          <td>MCO</td>
+          <td>Charles Leclerc</td>
+          <td>Ferrari</td>
+          <td>28 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>UK</td>
+          <td>Lewis Hamilton</td>
+          <td>Ferrari</td>
+          <td>27 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>UK</td>
+          <td>Lando Norris</td>
+          <td>McLaren</td>
+          <td>33 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>AUS</td>
+          <td>Oscar Piastri</td>
+          <td>McLaren</td>
+          <td>33 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>NED</td>
+          <td>Max Vertappen</td>
+          <td>RedBull</td>
+          <td>34 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>JAP</td>
+          <td>Yuki Tsunoda</td>
+          <td>RedBull</td>
+          <td>18 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>UK</td>
+          <td>George Russell</td>
+          <td>Mercedes</td>
+          <td>27 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>ITA</td>
+          <td>Kimi Antonelli</td>
+          <td>Mercedes</td>
+          <td>21 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>THA</td>
+          <td>Alexander Albon</td>
+          <td>Williams</td>
+          <td>19 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>FRA</td>
+          <td>Isack Hadjar</td>
+          <td>RB</td>
+          <td>17 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        </tr>
+        <tr>
+          <td>NZ</td>
+          <td>Liam Lawson</td>
+          <td>RB</td>
+          <td>15 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>FRA</td>
+          <td>Pierre Gasly</td>
+          <td>Alpine</td>
+          <td>16 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>ARG</td>
+          <td>Franco Colapinto</td>
+          <td>Alpine</td>
+          <td>13 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>FRA</td>
+          <td>Esteban Ocon</td>
+          <td>Haas</td>
+          <td>15 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>UK</td>
+          <td>Oliver Bearman</td>
+          <td>Haas</td>
+          <td>14 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>GER</td>
+          <td>Nico Hulkenberg</td>
+          <td>Sauber</td>
+          <td>13 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>BRA</td>
+          <td>Gabriel Bortoleto</td>
+          <td>Sauber</td>
+          <td>12 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+ <h2 style="
+    text-align: center;
+    color: #e10600;
+    font-family: system-ui, sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  ">
+    Scegli un Costruttore
+  </h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nazionalità</th>
+          <th>Nome</th>
+          <th>Prezzo</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ITA</td>
+          <td>Ferrari</td>
+          <td>21 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>GER</td>
+          <td>Mercedes</td>
+          <td>20 ₩</td>
+          <td><button>Seleziona</button></td>
+       
+        </tr>
+        <tr>
+          <td>UK</td>
+          <td>McLaren</td>
+          <td>24 ₩</td>
+          <td><button>Seleziona</button></td>
+        
+        </tr>
+        <tr>
+          <td>AUT</td>
+          <td>RedBull</td>
+          <td>22 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        
+        <tr>
+          <td>ITA</td>
+          <td>RB</td>
+          <td>16 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        
+        <tr>
+          <td>UK</td>
+          <td>Williams</td>
+          <td>17 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        
+        <tr>
+          <td>UK</td>
+          <td>Aston Martin</td>
+          <td>14 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        
+        <tr>
+          <td>SUI</td>
+          <td>Sauber</td>
+          <td>11 ₩</td>
+          <td><button>Seleziona</button></td>
+        
+        </tr>
+        <tr>
+          <td>FRA</td>
+          <td>Alpine</td>
+          <td>15 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+        <tr>
+          <td>USA</td>
+          <td>Haas</td>
+          <td>14 ₩</td>
+          <td><button>Seleziona</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="text-align: center; margin: 30px 0;">
+      <button style="
+        background-color: #e10600;
+        color: white;
+        border: none;
+        padding: 16px 40px;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      ">
+        CREA SQUADRA
+      </button>
+    </div>
+
+  </form>
+
+  <footer>
+    &copy; 2025 FF1 
+  </footer>
+
+  <script>
+    function validateForm() {
+      const checkboxes = document.querySelectorAll('input[name="piloti"]:checked');
+      if (checkboxes.length !== 3) {
+        alert("Devi selezionare esattamente 3 piloti.");
+        return false;
+      }
+      return true;
+    }
+  </script>
+
+</body>
+</html>

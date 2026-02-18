@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inserisci Codice e Squadra - Fantasy F1</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #1a1a1a, #2c2c2c);
+            color: #fff;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #e10600;
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .container {
+            width: 500px;
+            padding: 30px;
+            background-color: #111;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #ccc;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            font-size: 1em;
+        }
+
+        button {
+            margin-top: 30px;
+            width: 100%;
+            padding: 12px;
+            background-color: #e10600;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #b00000;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div class="main">
+            <div class="container">
+                <h2>Inserisci il codice e scegli la squadra</h2>
+                <form action="#" method="post">
+                    <label for="leagueCode">Codice alfanumerico</label>
+                    <input type="text" id="leagueCode" name="leagueCode" placeholder="Es. FF12025"
+                        pattern="[A-Za-z0-9]{4,10}" required />
+
+                    <label for="teamSelect">Scegli la tua squadra F1</label>
+                    <select id="teamSelect" name="teamSelect" required>
+                        <option value="">-- Seleziona una squadra --</option>
+                        <option value="Big Nyck Energy">Big Nyck Energy</option>
+                        <option value="Haas-ta La Vista">Haas-ta La Vista</option>
+                        <option value="Verstop It">Verstop It</option>
+                    </select>
+
+                    <button type="submit">Conferma</button>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Fantasy F1 - Powered by LMosca, BGregge, LZana</p>
+        </footer>
+    </div>
+</body>
+
+</html>

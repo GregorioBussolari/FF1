@@ -1,0 +1,28 @@
+<html>
+   <head>
+		<!-- <meta http-equiv="Refresh" content= "2; URL=paginaPrincipale"/> -->
+      <title>Players PreFetching</title>
+		<link type="text/css" href="styles/default.css" rel="stylesheet"></link>
+		<script type="text/javascript" src="scripts/utils.js"></script>
+	<script type="text/javascript" src="scripts/tourist.js"></script>
+   </head>
+   <body>
+ 		<div>
+ 			X: <input type="text" id="x" size="5" onfocusout="myFunction(myGetElementById('risProbabili'))"></input><br>
+ 			Y: <input type="text" id="y" size="5" onfocusout="myFunction(myGetElementById('risProbabili'))"></input><br>
+ 			<input type="button" id="prefetch" value ="Prefetch Touristic Points" onclick="myFunction(myGetElementById('risVisibili'))"><br> 
+ 		</div>
+	
+     	<div>
+     		Attrazioni Turistiche Visibili Trovate: <br>
+     	 	<ul id="risVisibili">
+     		</ul>
+     	</div>
+     	<div>
+     		Attrazioni Turistiche Pobabilmente Visibili Trovate: <br>
+     	 	<ul id="risProbabili">
+     		</ul>
+     	</div>
+
+   </body>
+</html>

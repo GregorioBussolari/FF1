@@ -1,0 +1,9 @@
+Prenotazioni iniziali: 
+-Utente 1:
+	Nome: Lorenzo
+	Cognome: Mosca
+	Username: LMos
+	Password: CR7Goat
+	Nazionalita: Italia
+
+
