@@ -13,7 +13,7 @@
 > - **Implementation** — working prototype built with Java EE, MySQL, and a React/HTML/CSS frontend
 > - **Known issues & future developments** — documented limitations and proposed enhancements
 >
-> Full technical documentation is available in the [`doc/`](./doc/) folder — see the [Documentation](#-documentation) section below.
+> Full technical documentation is available in the [`doc/`](./doc/) folder — see the [Documentation](#-Documentation) section below.
 
 ---
 
